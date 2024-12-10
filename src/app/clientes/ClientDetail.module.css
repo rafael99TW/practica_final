@@ -1,0 +1,29 @@
+/* ClientDetail.module.css */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.header {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.errorMessage {
+  color: red;
+  font-weight: bold;
+}
+
+.details {
+  margin-top: 20px;
+}
+
+.details p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
