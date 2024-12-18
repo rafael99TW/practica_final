@@ -1,4 +1,3 @@
-/* ClientsPage.module.css */
 .container {
   padding: 20px;
   background-color: #f9f9f9;
@@ -71,7 +70,6 @@
   margin: 20px 0;
 }
 
-/* Estilo para el modal de detalles del cliente */
 .modal {
   position: fixed;
   top: 0;

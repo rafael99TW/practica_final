@@ -2,16 +2,16 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import styles from './ProjectsPage.module.css'; // Archivo CSS para estilos
+import styles from './ProjectsPage.module.css';
 import CreateProjectForm from '../../components/CreateProjectForm';
-import SidebarMenu from "@/app/components/SidebarMenu"; // Importamos SidebarMenu
+import SidebarMenu from "@/app/components/SidebarMenu";
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [message, setMessage] = useState("");
-  const [selectedProject, setSelectedProject] = useState(null); // Estado para el proyecto seleccionado
-  const [clients, setClients] = useState({}); // Estado para almacenar los clientes
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [clients, setClients] = useState({});
 
   // Cargar proyectos
   useEffect(() => {
@@ -59,20 +59,16 @@ const ProjectsPage = () => {
     fetchClients();
   }, []);
 
-  // Mostrar el formulario de creación
   const toggleForm = () => setShowForm(!showForm);
 
-  // Mostrar detalles del proyecto
   const handleProjectClick = (project) => {
-    setSelectedProject(project); // Al hacer clic, mostramos los detalles
+    setSelectedProject(project);
   };
 
-  // Cerrar modal
   const closeModal = () => {
-    setSelectedProject(null); // Ocultamos el modal
+    setSelectedProject(null);
   };
 
-  // Manejar eliminación de proyecto
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("¿Seguro que deseas eliminar este proyecto?");
     if (!confirmDelete) return;
@@ -92,7 +88,7 @@ const ProjectsPage = () => {
 
   return (
     <div className={styles.container}>
-      <SidebarMenu /> {/* Agregar el SidebarMenu */}
+      <SidebarMenu /> {}
       
       <h1 className={styles.header}>Proyectos</h1>
 
@@ -122,12 +118,12 @@ const ProjectsPage = () => {
                   <li 
                     key={project._id} 
                     className={styles.projectItem} 
-                    onClick={() => handleProjectClick(project)} // Muestra los detalles al hacer clic
+                    onClick={() => handleProjectClick(project)}
                   >
                     <span>{project.name}</span>
                     <button
                       onClick={(e) => {
-                        e.stopPropagation(); // Evita que el clic en eliminar cierre el modal
+                        e.stopPropagation(); 
                         handleDelete(project._id);
                       }}
                       className={styles.deleteButton}
@@ -149,7 +145,7 @@ const ProjectsPage = () => {
             <p><strong>Código:</strong> {selectedProject.projectCode}</p>
             <p><strong>Fecha:</strong> {selectedProject.date}</p>
             <p><strong>Estado:</strong> {selectedProject.status}</p>
-            <p><strong>Cliente:</strong> {clients[selectedProject.clientId] || "Cliente no encontrado"}</p> {/* Nombre del cliente */}
+            <p><strong>Cliente:</strong> {clients[selectedProject.clientId] || "Cliente no encontrado"}</p> {}
             <button onClick={closeModal} className={styles.close}>
               Cerrar
             </button>

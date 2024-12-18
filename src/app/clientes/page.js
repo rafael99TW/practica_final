@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from './ClientsPage.module.css';
 import CreateClientForm from './CreateClientForm';
-import SidebarMenu from "../components/SidebarMenu"; // Importamos SidebarMenu
+import SidebarMenu from "../components/SidebarMenu";
 
 const ClientsPage = () => {
   const [clients, setClients] = useState([]);
@@ -60,7 +60,7 @@ const ClientsPage = () => {
 
   return (
     <div className={styles.container}>
-      <SidebarMenu /> {/* Agregar el SidebarMenu */}
+      <SidebarMenu /> {}
       
       <h1 className={styles.header}>Clientes</h1>
 

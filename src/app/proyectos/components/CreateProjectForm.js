@@ -9,8 +9,8 @@ const CreateProjectForm = ({ onProjectCreated }) => {
     name: "",
     projectCode: "",
     date: "",
-    status: "Activo", // Puedes personalizar los estados según tus necesidades
-    clientId: "",  // Aquí guardamos el ID del cliente seleccionado
+    status: "Activo",
+    clientId: "",
   });
   const [clients, setClients] = useState([]);
   const [message, setMessage] = useState("");
@@ -23,7 +23,7 @@ const CreateProjectForm = ({ onProjectCreated }) => {
             Authorization: `Bearer ${localStorage.getItem("jwt")}`,
           },
         });
-        setClients(response.data);  // Asumiendo que la respuesta es un array de clientes
+        setClients(response.data);
       } catch (error) {
         setMessage("Error al cargar los clientes.");
       }
@@ -54,7 +54,7 @@ const CreateProjectForm = ({ onProjectCreated }) => {
           },
         }
       );
-      onProjectCreated(response.data); // Notificar al componente padre
+      onProjectCreated(response.data);
       setMessage("Proyecto creado exitosamente.");
     } catch (error) {
       setMessage("Error al crear el proyecto.");
@@ -93,7 +93,7 @@ const CreateProjectForm = ({ onProjectCreated }) => {
         required
       />
       
-      {/* Selección del cliente */}
+      {}
       <select
         className={styles.select}
         name="clientId"

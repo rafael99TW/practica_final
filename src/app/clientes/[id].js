@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 const ClientDetail = () => {
   const router = useRouter();
-  const { id } = router.query;  // Obtén el ID del cliente desde la URL
+  const { id } = router.query;
   const [client, setClient] = useState(null);
   const [message, setMessage] = useState("");
 
@@ -20,7 +20,7 @@ const ClientDetail = () => {
               },
             }
           );
-          setClient(response.data);  // Asumiendo que la respuesta es un objeto con los detalles del cliente
+          setClient(response.data);
         } catch (error) {
           setMessage("Error al cargar el cliente.");
         }
@@ -38,7 +38,7 @@ const ClientDetail = () => {
       {message && <p>{message}</p>}
       <p><strong>ID:</strong> {client.id}</p>
       <p><strong>Nombre:</strong> {client.name}</p>
-      {/* Mostrar más detalles según la estructura de la respuesta */}
+      {}
     </div>
   );
 };

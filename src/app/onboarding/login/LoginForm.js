@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation"; // Importar el router correcto para Next.js 13
-import styles from './LoginForm.module.css'; // Importar los estilos
+import { useRouter } from "next/navigation";
+import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const router = useRouter(); // Inicializar router
+  const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -20,12 +20,10 @@ const LoginForm = () => {
         { email, password }
       );
 
-      // Guardar token
       localStorage.setItem("jwt", response.data.token);
       setMessage("Inicio de sesión exitoso!");
 
-      // Redirigir a clientes
-      router.push("/"); // Redirigir a la página de clientes
+      router.push("/");
     } catch (error) {
       console.error(error);
       setMessage(

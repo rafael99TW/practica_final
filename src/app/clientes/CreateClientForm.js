@@ -45,7 +45,7 @@ const CreateClientForm = ({ onClientAdded }) => {
           },
         }
       );
-      onClientAdded(response.data); // Notificar al componente padre
+      onClientAdded(response.data);
       setMessage("Cliente creado exitosamente.");
     } catch (error) {
       setMessage("Error al crear el cliente.");

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
-import styles from './ClientDetail.module.css'; // Asegúrate de agregar el archivo CSS
+import styles from './ClientDetail.module.css';
 
 const ClientDetail = () => {
   const router = useRouter();
@@ -40,7 +40,7 @@ const ClientDetail = () => {
       <div className={styles.details}>
         <p><strong>ID:</strong> {client.id}</p>
         <p><strong>Nombre:</strong> {client.name}</p>
-        {/* Mostrar más detalles según la estructura de la respuesta */}
+        {}
       </div>
     </div>
   );

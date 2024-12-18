@@ -1,6 +1,4 @@
-/* RegisterForm.module.css */
 
-/* Estilos generales del formulario */
 .form {
   display: flex;
   flex-direction: column;
@@ -16,7 +14,6 @@
   background-color: #f7f9fc;
 }
 
-/* Estilo de los inputs */
 .input {
   width: 100%;
   padding: 12px;
@@ -33,7 +30,6 @@
   outline: none;
 }
 
-/* Estilo del botón */
 .button {
   padding: 12px 24px;
   background-color: #3498db;
@@ -55,7 +51,6 @@
   transform: translateY(0);
 }
 
-/* Mensajes de error o éxito */
 .message {
   margin-top: 1rem;
   color: #e74c3c;

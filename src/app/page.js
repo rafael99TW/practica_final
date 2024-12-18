@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import styles from './page.module.css';
-import SidebarMenu from './components/SidebarMenu'; // Importamos el SidebarMenu
+import SidebarMenu from './components/SidebarMenu';
 import { useState, useEffect } from 'react';
 
 export default function Home() {
@@ -11,9 +11,8 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      // Solo se ejecuta en el cliente
       const token = localStorage.getItem('jwt');
-      const storedUsername = localStorage.getItem('username'); // Suponiendo que el nombre del usuario está guardado en el localStorage
+      const storedUsername = localStorage.getItem('username');
       if (token) {
         setIsAuthenticated(true);
       }
@@ -24,7 +23,6 @@ export default function Home() {
   }, []);
 
   const handleLogout = () => {
-    // Limpiar el token y el nombre del usuario del localStorage
     localStorage.removeItem('jwt');
     localStorage.removeItem('username');
     setIsAuthenticated(false);
@@ -33,22 +31,22 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      {/* Cabecera con los botones */}
+      {}
       <header className={styles.header}>
         <div className={styles.buttonContainer}>
-          {/* Mostrar el nombre del usuario si está autenticado */}
+          {}
           {isAuthenticated ? (
             <div className={styles.welcomeContainer}>
               <button className={styles.button} onClick={handleLogout}>Cerrar sesión</button>
             </div>
           ) : (
             <>
-              {/* Botón para Iniciar sesión */}
+              {}
               <Link href="/onboarding/login">
                 <button className={styles.button}>Iniciar sesión</button>
               </Link>
 
-              {/* Botón para Registrarse */}
+              {}
               <Link href="/onboarding/register">
                 <button className={styles.button}>Registrarse</button>
               </Link>
@@ -57,8 +55,8 @@ export default function Home() {
         </div>
       </header>
 
-      {/* SidebarMenu solo se muestra si el usuario está autenticado */}
-      {isAuthenticated && <SidebarMenu />} {/* Mostramos el menú si el usuario está autenticado */}
+      {}
+      {isAuthenticated && <SidebarMenu />} {}
 
       <main className={styles.main}>
         <h1 className={styles.title}>Bienvenido a la aplicación de gestión de albaranes</h1>

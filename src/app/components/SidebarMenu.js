@@ -6,7 +6,7 @@ import styles from './SidebarMenu.module.css';
 
 export default function SidebarMenu() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Estado para controlar si el sidebar está abierto
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('jwt');
@@ -16,7 +16,6 @@ export default function SidebarMenu() {
       setIsAuthenticated(false);
     }
 
-    // Obtener el estado de isSidebarOpen del localStorage, si está presente
     const sidebarState = localStorage.getItem('sidebarOpen');
     if (sidebarState) {
       setIsSidebarOpen(JSON.parse(sidebarState));
@@ -26,25 +25,25 @@ export default function SidebarMenu() {
   const toggleSidebar = () => {
     setIsSidebarOpen(prevState => {
       const newState = !prevState;
-      localStorage.setItem('sidebarOpen', JSON.stringify(newState)); // Guardar el estado en localStorage
+      localStorage.setItem('sidebarOpen', JSON.stringify(newState));
       return newState;
     });
   };
 
   const closeSidebar = () => {
     setIsSidebarOpen(false);
-    localStorage.setItem('sidebarOpen', 'false'); // Asegurar que se guarde el estado cerrado
+    localStorage.setItem('sidebarOpen', 'false'); 
   };
 
   const handleLinkClick = () => {
-    closeSidebar(); // Cerrar el sidebar cuando se haga clic en un enlace
+    closeSidebar();
   };
 
-  if (!isAuthenticated) return null; // Si no está autenticado, no mostramos el menú
+  if (!isAuthenticated) return null;
 
   return (
     <>
-      {/* Botón para mostrar/ocultar el sidebar */}
+      {}
       <button
         onClick={toggleSidebar}
         className={styles.toggleButton}
@@ -52,7 +51,7 @@ export default function SidebarMenu() {
         {isSidebarOpen ? 'Cerrar menú' : 'Abrir menú'}
       </button>
 
-      {/* Mostrar el sidebar solo si el estado isSidebarOpen es verdadero */}
+      {}
       {isSidebarOpen && (
         <div className={styles.sidebar}>
           <button 

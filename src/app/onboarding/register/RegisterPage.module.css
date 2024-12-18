@@ -1,6 +1,4 @@
-/* RegisterPage.module.css */
 
-/* Contenedor de la página de registro */
 .pageContainer {
     display: flex;
     flex-direction: column;
@@ -11,7 +9,6 @@
     padding: 2rem;
   }
   
-  /* Estilo del encabezado */
   .heading {
     font-size: 2rem;
     font-weight: bold;

@@ -1,12 +1,12 @@
 'use client';
 
-import ValidateEmailForm from "./ValidateEmailForm"; // Ruta correcta a ValidateEmailForm
-import styles from './ValidateEmailPage.module.css'; // Importa el archivo CSS de la página
+import ValidateEmailForm from "./ValidateEmailForm"; 
+import styles from './ValidateEmailPage.module.css';
 
 export default function ValidateEmailPage() {
   return (
-    <div className={styles.pageContainer}> {/* Aplica el contenedor con estilos */}
-      <h1 className={styles.heading}>Validar Correo Electrónico</h1> {/* Aplica el título con estilo */}
+    <div className={styles.pageContainer}> {}
+      <h1 className={styles.heading}>Validar Correo Electrónico</h1> {}
       <ValidateEmailForm />
     </div>
   );

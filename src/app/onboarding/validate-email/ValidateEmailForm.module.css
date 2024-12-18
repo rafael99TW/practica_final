@@ -1,6 +1,4 @@
-/* ValidateEmailForm.module.css */
 
-/* Estilo general para el formulario */
 .formContainer {
     display: flex;
     flex-direction: column;
@@ -13,7 +11,6 @@
     max-width: 400px;
   }
   
-  /* Estilo para el campo de entrada */
   .inputField {
     padding: 0.8rem;
     font-size: 1rem;
@@ -28,7 +25,6 @@
     border-color: #007bff;
   }
   
-  /* Estilo para el botón de enviar */
   .submitButton {
     padding: 0.8rem;
     background-color: #007bff;
@@ -43,7 +39,6 @@
     background-color: #0056b3;
   }
   
-  /* Estilo para el mensaje de error o éxito */
   .message {
     font-size: 1rem;
     color: #d9534f;

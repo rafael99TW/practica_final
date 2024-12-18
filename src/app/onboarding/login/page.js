@@ -1,7 +1,7 @@
 'use client';
 
-import LoginForm from "./LoginForm"; // Ruta correcta a LoginForm
-import styles from './LoginPage.module.css'; // Importar los estilos del page
+import LoginForm from "./LoginForm";
+import styles from './LoginPage.module.css';
 
 export default function LoginPage() {
   return (

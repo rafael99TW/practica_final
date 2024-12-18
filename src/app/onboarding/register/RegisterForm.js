@@ -1,14 +1,14 @@
 'use client';
 import { useState } from "react";
 import axios from "axios";
-import { useRouter } from 'next/navigation'; // Importar useRouter
-import styles from './RegisterForm.module.css'; // Importar el CSS
+import { useRouter } from 'next/navigation'; 
+import styles from './RegisterForm.module.css';
 
 const RegisterForm = ({ onRegisterSuccess }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const router = useRouter(); // Inicializar router
+  const router = useRouter(); 
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -19,11 +19,9 @@ const RegisterForm = ({ onRegisterSuccess }) => {
         password,
       });
   
-      // Guardar token
       localStorage.setItem("jwt", response.data.token);
       setMessage("Registro exitoso! Ahora valida tu correo.");
   
-      // Redirigir al formulario de validación de email
       router.push("/onboarding/validate-email");
     } catch (error) {
       setMessage("Error al registrarse. Por favor, inténtalo de nuevo.");
