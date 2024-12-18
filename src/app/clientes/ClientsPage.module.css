@@ -1,9 +1,16 @@
+/* ClientsPage.module.css */
 .container {
   padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
 }
 
 .header {
-  font-size: 24px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .noClients {
@@ -19,23 +26,83 @@
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 5px;
+  display: block;
+  margin: 0 auto;
 }
 
 .clientList {
-  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
   padding: 0;
+  list-style: none;
 }
 
 .clientItem {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.clientItem:hover {
+  transform: translateY(-5px);
+}
+
+.clientItem span {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
 }
 
 .deleteButton {
   color: red;
-  cursor: pointer;
   background: none;
   border: none;
+  cursor: pointer;
+}
+
+.message {
+  text-align: center;
+  color: #333;
+  font-size: 1.1rem;
+  margin: 20px 0;
+}
+
+/* Estilo para el modal de detalles del cliente */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal h2 {
+  margin-top: 0;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
 }

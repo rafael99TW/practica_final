@@ -25,7 +25,7 @@ const LoginForm = () => {
       setMessage("Inicio de sesión exitoso!");
 
       // Redirigir a clientes
-      router.push("/clientes"); // Redirigir a la página de clientes
+      router.push("/"); // Redirigir a la página de clientes
     } catch (error) {
       console.error(error);
       setMessage(

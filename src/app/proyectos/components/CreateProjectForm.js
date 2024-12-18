@@ -10,7 +10,7 @@ const CreateProjectForm = ({ onProjectCreated }) => {
     projectCode: "",
     date: "",
     status: "Activo", // Puedes personalizar los estados según tus necesidades
-    clientId: "",  // Aquí guardaremos el ID del cliente seleccionado
+    clientId: "",  // Aquí guardamos el ID del cliente seleccionado
   });
   const [clients, setClients] = useState([]);
   const [message, setMessage] = useState("");
@@ -63,10 +63,11 @@ const CreateProjectForm = ({ onProjectCreated }) => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <h2>Crear Proyecto</h2>
+      <h2 className={styles.title}>Crear Proyecto</h2>
       {message && <p className={styles.message}>{message}</p>}
 
       <input
+        className={styles.input}
         type="text"
         name="name"
         placeholder="Nombre del Proyecto"
@@ -75,6 +76,7 @@ const CreateProjectForm = ({ onProjectCreated }) => {
         required
       />
       <input
+        className={styles.input}
         type="text"
         name="projectCode"
         placeholder="Código del Proyecto"
@@ -83,6 +85,7 @@ const CreateProjectForm = ({ onProjectCreated }) => {
         required
       />
       <input
+        className={styles.input}
         type="date"
         name="date"
         value={formData.date}
@@ -92,6 +95,7 @@ const CreateProjectForm = ({ onProjectCreated }) => {
       
       {/* Selección del cliente */}
       <select
+        className={styles.select}
         name="clientId"
         value={formData.clientId}
         onChange={handleInputChange}

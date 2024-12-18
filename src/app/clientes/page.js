@@ -1,16 +1,17 @@
 'use client';
+
 import { useState, useEffect } from "react";
 import axios from "axios";
-import styles from './ClientsPage.module.css'; // Archivo CSS para estilos
-import CreateClientForm from './CreateClientForm'; // Importamos el formulario de creación
+import styles from './ClientsPage.module.css';
+import CreateClientForm from './CreateClientForm';
+import SidebarMenu from "../components/SidebarMenu"; // Importamos SidebarMenu
 
 const ClientsPage = () => {
   const [clients, setClients] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [message, setMessage] = useState("");
-  const [selectedClient, setSelectedClient] = useState(null); // Estado para el cliente seleccionado
+  const [selectedClient, setSelectedClient] = useState(null);
 
-  // Cargar clientes
   useEffect(() => {
     const fetchClients = async () => {
       try {
@@ -22,7 +23,7 @@ const ClientsPage = () => {
             },
           }
         );
-        setClients(response.data); // Asumiendo que es un array de clientes
+        setClients(response.data);
       } catch (error) {
         setMessage("Error al cargar los clientes.");
       }
@@ -30,7 +31,6 @@ const ClientsPage = () => {
     fetchClients();
   }, []);
 
-  // Manejar eliminación de cliente
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("¿Seguro que deseas eliminar este cliente?");
     if (!confirmDelete) return;
@@ -48,21 +48,20 @@ const ClientsPage = () => {
     }
   };
 
-  // Mostrar el formulario de creación
   const toggleForm = () => setShowForm(!showForm);
 
-  // Mostrar detalles del cliente al hacer clic
   const handleClientClick = (client) => {
-    setSelectedClient(client); // Guardamos el cliente seleccionado en el estado
+    setSelectedClient(client);
   };
 
-  // Cerrar el modal
   const closeModal = () => {
     setSelectedClient(null);
   };
 
   return (
     <div className={styles.container}>
+      <SidebarMenu /> {/* Agregar el SidebarMenu */}
+      
       <h1 className={styles.header}>Clientes</h1>
 
       {message && <p className={styles.message}>{message}</p>}
@@ -77,27 +76,16 @@ const ClientsPage = () => {
           {clients.length === 0 ? (
             <div className={styles.noClients}>
               <p>No existe ningún cliente</p>
-              <button onClick={toggleForm} className={styles.addButton}>
-                Crear Cliente
-              </button>
+              <button onClick={toggleForm} className={styles.addButton}>Crear Cliente</button>
             </div>
           ) : (
             <>
-              <button onClick={toggleForm} className={styles.addButton}>
-                +
-              </button>
+              <button onClick={toggleForm} className={styles.addButton}>+</button>
               <ul className={styles.clientList}>
                 {clients.map((client) => (
                   <li key={client._id} className={styles.clientItem}>
-                    <span onClick={() => handleClientClick(client)}>
-                      {client.name}
-                    </span>
-                    <button
-                      onClick={() => handleDelete(client._id)}
-                      className={styles.deleteButton}
-                    >
-                      X
-                    </button>
+                    <span onClick={() => handleClientClick(client)}>{client.name}</span>
+                    <button onClick={() => handleDelete(client._id)} className={styles.deleteButton}>X</button>
                   </li>
                 ))}
               </ul>
@@ -106,17 +94,14 @@ const ClientsPage = () => {
         </>
       )}
 
-      {/* Modal de detalles del cliente */}
       {selectedClient && (
         <div className={styles.modal}>
           <div className={styles.modalContent}>
             <span className={styles.close} onClick={closeModal}>X</span>
             <h2>{selectedClient.name}</h2>
             <p><strong>CIF:</strong> {selectedClient.cif}</p>
-            <p><strong>Dirección:</strong> {`${selectedClient.address.street}, ${selectedClient.address.number}, ${selectedClient.address.city}, ${selectedClient.address.province} ${selectedClient.address.postal}`}</p>
+            <p><strong>Dirección:</strong> {selectedClient.address.street}</p>
             <p><strong>Proyectos Activos:</strong> {selectedClient.activeProjects}</p>
-            <p><strong>Notas de Entrega Pendientes:</strong> {selectedClient.pendingDeliveryNotes}</p>
-            {/* Puedes agregar más campos aquí si lo necesitas */}
           </div>
         </div>
       )}

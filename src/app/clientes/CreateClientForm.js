@@ -109,9 +109,6 @@ const CreateClientForm = ({ onClientAdded }) => {
       <button type="submit" className={styles.submitButton}>
         Crear
       </button>
-      <button type="button" onClick={() => onClientAdded(null)} className={styles.cancelButton}>
-        Cancelar
-      </button>
     </form>
   );
 };
